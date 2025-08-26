@@ -16,10 +16,12 @@ import java.util.Set;
 @Entity
 @Table(name = "users")
 @ToString(exclude = "addresses")
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+    @EqualsAndHashCode.Include
     private Long id;
 
     @Column(name = "name")
