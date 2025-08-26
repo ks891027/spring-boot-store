@@ -4,6 +4,7 @@ import com.yang.storeapi.dtos.ChangePasswordRequest;
 import com.yang.storeapi.dtos.RegisterUserRequest;
 import com.yang.storeapi.dtos.UpdateUserRequest;
 import com.yang.storeapi.dtos.UserDto;
+import com.yang.storeapi.entities.Role;
 import com.yang.storeapi.mappers.UserMapper;
 import com.yang.storeapi.repositories.UserRepository;
 import jakarta.validation.Valid;
@@ -11,6 +12,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +28,7 @@ import java.util.Set;
 public class UserController {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
+    private final PasswordEncoder passwordEncoder;
 
     @GetMapping
     private Iterable<UserDto> getAllUsers(
@@ -63,6 +66,8 @@ public class UserController {
         }
 
         var user = userMapper.toEntity(request);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRole(Role.USER);
         userRepository.save(user);
 
         var userDto = userMapper.toDto(user);
