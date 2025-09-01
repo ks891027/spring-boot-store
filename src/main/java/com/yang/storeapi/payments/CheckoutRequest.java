@@ -1,4 +1,4 @@
-package com.yang.storeapi.dtos;
+package com.yang.storeapi.payments;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
