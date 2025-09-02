@@ -1,6 +1,6 @@
 package com.yang.storeapi.payments;
 
-import com.yang.storeapi.entities.PaymentStatus;
+import com.yang.storeapi.orders.PaymentStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

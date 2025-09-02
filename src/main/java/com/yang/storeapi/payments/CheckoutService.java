@@ -1,11 +1,11 @@
 package com.yang.storeapi.payments;
 
-import com.yang.storeapi.entities.Order;
-import com.yang.storeapi.exceptions.CartEmptyException;
-import com.yang.storeapi.exceptions.CartNotFoundException;
-import com.yang.storeapi.repositories.CartRepository;
-import com.yang.storeapi.repositories.OrderRepository;
-import com.yang.storeapi.services.AuthService;
+import com.yang.storeapi.orders.Order;
+import com.yang.storeapi.carts.CartEmptyException;
+import com.yang.storeapi.carts.CartNotFoundException;
+import com.yang.storeapi.carts.CartRepository;
+import com.yang.storeapi.orders.OrderRepository;
+import com.yang.storeapi.auth.AuthService;
 import com.yang.storeapi.services.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

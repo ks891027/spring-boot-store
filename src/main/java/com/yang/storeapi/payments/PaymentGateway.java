@@ -1,6 +1,6 @@
 package com.yang.storeapi.payments;
 
-import com.yang.storeapi.entities.Order;
+import com.yang.storeapi.orders.Order;
 
 import java.util.Optional;
 
